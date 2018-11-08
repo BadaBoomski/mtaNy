@@ -24,9 +24,15 @@ namespace ConsoleApp3.Domain
             var newTrackList = new List<ITrack>();
             foreach (var data in e.TransponderData)
             {
-                var split = data.Split(';');
-                var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture), null);
-                System.Console.WriteLine($"Transponderdata {data}");
+                Track track = new Track(data);
+
+                newTrackList.Add(track);
+
+                track.ProcessTrackData(track);
+
+                //var split = data.Split(';');
+                //var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture), null);
+                //System.Console.WriteLine($"Transponderdata {data}");
             }
         }
     }
