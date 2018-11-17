@@ -10,6 +10,7 @@ namespace ConsoleApp3.Domain
 {
     public class TransponderReceiverClient
     {
+        public event EventHandler<TrackEvents> ReadyTracks;
         private ITransponderReceiver receiver;
 
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -25,8 +26,10 @@ namespace ConsoleApp3.Domain
             foreach (var data in e.TransponderData)
             {
                 var split = data.Split(';');
-                var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture), null);
+                var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), DateTime.ParseExact(split[3], "yyyyMMddHHmmssfff", null));
                 System.Console.WriteLine($"Transponderdata {data}");
+
+                newTrackList.Add(newTrack);
             }
         }
     }

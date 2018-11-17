@@ -19,14 +19,12 @@ namespace ConsoleApp3
         public double Velocity { get; set; }
         public double Course { get; set; }
 
-        public Track(string tag, int xCoordinate, int yCoordinate, DateTime timestamp, double velocity, double course)
+        public Track(string tag, int xCoordinate, int yCoordinate, DateTime timestamp)
         {
             Tag = tag;
             XCoordinate = xCoordinate;
             YCoordinate = yCoordinate;
             Timestamp = timestamp;
-            Velocity = velocity;
-            Course = course;
         }
     }
 }
