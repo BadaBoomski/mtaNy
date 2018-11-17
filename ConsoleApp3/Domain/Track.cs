@@ -20,6 +20,15 @@ namespace ConsoleApp3
         public double Velocity { get; set; }
         public double Course { get; set; }
 
+        public Track(string tag, int xCoordinate, int yCoordinate, int altitude, DateTime timestamp)
+        {
+            Tag = tag;
+            XCoordinate = xCoordinate;
+            YCoordinate = yCoordinate;
+            Timestamp = timestamp;
+            Altitude = altitude;
+        }
+
         public Track(string rawData)
         {
             string[] delimiters = { ";" };
@@ -33,6 +42,7 @@ namespace ConsoleApp3
             Velocity = 0;
             Course = 0;
         }
+
         public void Update(Track newData)
         {
             var deltaX = newData.XCoordinate - XCoordinate;
@@ -45,30 +55,23 @@ namespace ConsoleApp3
             Timestamp = newData.Timestamp;
         }
 
-        public void ProcessTrackData(TrackData trackData)
-        {
-            if (planeList.Exists(p => p.Data.Tag == trackData.Tag))
-            {
-                // update track data.
-                if (insideAirspace(trackData))
-                {
-                    planeList.Find(p => p.Data.Tag == trackData.Tag).Data.Update(trackData);
-                }
-                else
-                {
-                    planeList.RemoveAll(p => p.Data.Tag == trackData.Tag);
-                }
-            }
-            else if (insideAirspace(trackData))
-            {
-                planeList.Add(new Plane(trackData));
-            }
-        public Track(string tag, int xCoordinate, int yCoordinate, DateTime timestamp)
-        {
-            Tag = tag;
-            XCoordinate = xCoordinate;
-            YCoordinate = yCoordinate;
-            Timestamp = timestamp;
-        }
+        //public void ProcessTrackData(TrackData trackData)
+        //{
+        //    if (planeList.Exists(p => p.Data.Tag == trackData.Tag))
+        //    {
+        //        // update track data.
+        //        if (insideAirspace(trackData))
+        //        {
+        //            planeList.Find(p => p.Data.Tag == trackData.Tag).Data.Update(trackData);
+        //        }
+        //        else
+        //        {
+        //            planeList.RemoveAll(p => p.Data.Tag == trackData.Tag);
+        //        }
+        //    }
+        //    else if (insideAirspace(trackData))
+        //    {
+        //        planeList.Add(new Plane(trackData));
+        //    }
     }
 }
