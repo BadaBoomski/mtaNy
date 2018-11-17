@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,49 @@ namespace ConsoleApp3
         public double Velocity { get; set; }
         public double Course { get; set; }
 
+        public Track(string rawData)
+        {
+            string[] delimiters = { ";" };
+            string[] subStrings = rawData.Split(delimiters, StringSplitOptions.None);
+
+            Tag = subStrings[0];
+            XCoordinate = Int32.Parse(subStrings[1]);
+            YCoordinate = Int32.Parse(subStrings[2]);
+            Altitude = Int32.Parse(subStrings[3]);
+            Timestamp = DateTime.ParseExact(subStrings[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+            Velocity = 0;
+            Course = 0;
+        }
+        public void Update(Track newData)
+        {
+            var deltaX = newData.XCoordinate - XCoordinate;
+            var deltaY = newData.YCoordinate - YCoordinate;
+            Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+            Course = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
+            XCoordinate = newData.XCoordinate;
+            YCoordinate = newData.YCoordinate;
+            Altitude = newData.Altitude;
+            Timestamp = newData.Timestamp;
+        }
+
+        public void ProcessTrackData(TrackData trackData)
+        {
+            if (planeList.Exists(p => p.Data.Tag == trackData.Tag))
+            {
+                // update track data.
+                if (insideAirspace(trackData))
+                {
+                    planeList.Find(p => p.Data.Tag == trackData.Tag).Data.Update(trackData);
+                }
+                else
+                {
+                    planeList.RemoveAll(p => p.Data.Tag == trackData.Tag);
+                }
+            }
+            else if (insideAirspace(trackData))
+            {
+                planeList.Add(new Plane(trackData));
+            }
         public Track(string tag, int xCoordinate, int yCoordinate, DateTime timestamp)
         {
             Tag = tag;
