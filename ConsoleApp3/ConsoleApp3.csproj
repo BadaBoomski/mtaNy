@@ -46,9 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckTracks.cs" />
     <Compile Include="Domain\TrackEvents.cs" />
     <Compile Include="Domain\TracksUpdated.cs" />
     <Compile Include="Domain\TransponderReceiverClient.cs" />
+    <Compile Include="ICheckTracks.cs" />
     <Compile Include="Interfaces\IOurAirspace.cs" />
     <Compile Include="Domain\OurAirspace.cs" />
     <Compile Include="Interfaces\ITrack.cs" />

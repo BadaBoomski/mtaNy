@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Domain
 {
-    class TracksUpdated
+    class TracksUpdated : ITrack
     {
         public event EventHandler<TrackEvents> UpdatedTracks;
 
@@ -18,6 +18,18 @@ namespace ConsoleApp3.Domain
             //{
             //    var 
             //}
+
+            public void Update(ITrack newData)
+            {
+                var deltaX = newData.XCoordinate - XCoordinate;
+                var deltaY = newData.YCoordinate - YCoordinate;
+                Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+                CompassCourse = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
+                XCoordinate = newData.XCoordinate;
+                YCoordinate = newData.YCoordinate;
+                Altitude = newData.Altitude;
+                TimeStamp = newData.TimeStamp;
+            }
         }
     }
 }
