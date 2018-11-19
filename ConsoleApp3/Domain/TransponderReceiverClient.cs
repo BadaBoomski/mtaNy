@@ -11,13 +11,19 @@ namespace ConsoleApp3.Domain
     public class TransponderReceiverClient : ITransponderReceiverClient
     {
         public event EventHandler<TrackEvents> ReadyTracks;
-        private ITransponderReceiver receiver;
+        private ITransponderReceiver receiver { set; get; }
 
         public TransponderReceiverClient(ITransponderReceiver receiver)
         {
             this.receiver = receiver;
 
-            this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady; // this is our tracks
+            this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady; 
+        }
+
+        public ITransponderReceiver Receiver
+        {
+            get{ return receiver; }
+            set{ receiver = value; }
         }
 
         public void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)

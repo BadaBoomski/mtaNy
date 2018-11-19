@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp3
 {
@@ -13,5 +14,9 @@ namespace ConsoleApp3
 
         double Velocity { get; set; }
         double Course { get; set; }
+
+        void Update(ITrack newData);
+
+        void FindTrackInList(ref List<ITrack> trackList);
     }
 }

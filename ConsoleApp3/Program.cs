@@ -15,7 +15,10 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             IMonitor monitor = new Monitor();
-            ITransponderReceiver transponder = TransponderReceiverFactory.CreateTransponderDataReceiver();
+            ITransponderReceiver reciever = TransponderReceiverFactory.CreateTransponderDataReceiver();
+            ITransponderReceiverClient transponder = new TransponderReceiverClient(reciever);
+            IOurAirspace ourAirspace = new OurAirspace(transponder);
+            ITracksUpdated tracksUpdated = new TracksUpdated(ourAirspace);
         }
     }
 }

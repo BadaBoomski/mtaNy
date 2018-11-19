@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp3.Domain;
+using TransponderReceiver;
 
 namespace ConsoleApp3.Domain
 {
