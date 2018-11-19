@@ -26,9 +26,16 @@ namespace ConsoleApp3
             {
                 if(_ourAirspace.IsPlaneInOurAirspace(data))
                 {
-
+                    tracksThatAreChecked.Add(data);
                 }
             }
+
+            CheckedTracksEvent(new TrackEvents(tracksThatAreChecked));
+        }
+
+        protected virtual void CheckedTracksEvent(TrackEvents e)
+        {
+            CheckedTracks?.Invoke(this, e);
         }
     }
 }

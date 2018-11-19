@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Domain
 {
-    class TracksUpdated :ITracksUpdated
+    class TracksUpdated : ITracksUpdated
     {
         public event EventHandler<TrackEvents> UpdatedTracks;
         private List<ITrack> _oldTrack;
