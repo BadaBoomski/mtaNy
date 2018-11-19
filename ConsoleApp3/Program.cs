@@ -15,7 +15,7 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             IMonitor monitor = new Monitor();
-            //ITransponderReceiver transponder = new TransponderReciverFactory(); 
+            ITransponderReceiver transponder = TransponderReceiverFactory.CreateTransponderDataReceiver();
         }
     }
 }
