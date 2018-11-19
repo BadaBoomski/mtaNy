@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Domain
 {
-    class TracksUpdated :ITracksUpdated
+    class TracksUpdated : ITracksUpdated
     {
         public event EventHandler<TrackEvents> UpdatedTracks;
         private List<ITrack> _oldTrack;
 
         private void UpdateTracks(object sender, TrackEvents e)
         {
-            //var updatedTracks = new List<ITrack>();
-
-            //foreach (var data in TrackEvents)
-            //{
-            //    var 
-            //}
-
-         
+            _oldTrack = new List<ITrack>();
+           
         }
 
         //Itrack someTrack = new ITrack()
