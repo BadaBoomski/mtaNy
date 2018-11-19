@@ -22,7 +22,7 @@ namespace ConsoleApp3
         {
             var tracksThatAreChecked = new List<ITrack>();
 
-            foreach (var data in e.TrackData)
+            foreach (ITrack data in e.TrackData)
             {
                 if(_ourAirspace.IsPlaneInOurAirspace(data))
                 {

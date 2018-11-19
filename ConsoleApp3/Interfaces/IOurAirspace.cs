@@ -9,7 +9,7 @@
         int LowerBoundary { get; set; }
         int UpperBoundary { get; set; }
 
-        bool IsPlaneInOurAirspace(Track checker);
+        bool IsPlaneInOurAirspace(ITrack checker);
 
     }
 }

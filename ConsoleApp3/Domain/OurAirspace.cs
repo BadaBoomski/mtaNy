@@ -26,7 +26,7 @@ namespace ConsoleApp3.Domain
             UpperBoundary = 20000;
         }
 
-        public bool IsPlaneInOurAirspace(Track checker)
+        public bool IsPlaneInOurAirspace(ITrack checker)
         {
             if (checker.XCoordinate >= SWcornerX && checker.XCoordinate <= NEcornerX &&
                 checker.YCoordinate >= SWcornerY && checker.YCoordinate <= NEcornerY &&

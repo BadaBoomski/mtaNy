@@ -25,6 +25,10 @@ namespace ConsoleApp3.Domain
             var newTrackList = new List<ITrack>();
             foreach (var data in e.TransponderData)
             {
+                ITrack someTrack = new Track(data);
+
+                Console.WriteLine(someTrack.ToString());
+
                 var split = data.Split(';');
                 var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", null));
                 System.Console.WriteLine($"Transponderdata {data}");

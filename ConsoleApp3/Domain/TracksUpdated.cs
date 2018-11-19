@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Domain
 {
-    class TracksUpdated : ITrack
+    class TracksUpdated :ITracksUpdated
     {
         public event EventHandler<TrackEvents> UpdatedTracks;
+        private List<ITrack> _oldTrack;
 
         private void UpdateTracks(object sender, TrackEvents e)
         {
@@ -19,17 +20,21 @@ namespace ConsoleApp3.Domain
             //    var 
             //}
 
-            public void Update(ITrack newData)
-            {
-                var deltaX = newData.XCoordinate - XCoordinate;
-                var deltaY = newData.YCoordinate - YCoordinate;
-                Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
-                CompassCourse = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
-                XCoordinate = newData.XCoordinate;
-                YCoordinate = newData.YCoordinate;
-                Altitude = newData.Altitude;
-                TimeStamp = newData.TimeStamp;
-            }
+         
+        }
+
+        //Itrack someTrack = new ITrack()
+        // someTrack.Update(Track data, Track data)
+        public static void Update(ITrack newData, ITrack oldData)
+        {
+            var deltaX = newData.XCoordinate - oldData.XCoordinate;
+            var deltaY = newData.YCoordinate - oldData.YCoordinate;
+            Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+            CompassCourse = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
+            XCoordinate = newData.XCoordinate;
+            YCoordinate = newData.YCoordinate;
+            Altitude = newData.Altitude;
+            TimeStamp = newData.TimeStamp;
         }
     }
 }
