@@ -7,7 +7,7 @@ using ConsoleApp3.Domain;
 
 namespace ConsoleApp3
 {
-    class CheckTracks: ICheckTracks
+    public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
         public EventHandler<TrackEvents> CheckedTracks;

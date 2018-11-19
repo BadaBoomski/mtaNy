@@ -32,7 +32,7 @@ namespace UnitTestProject1
         [TestCase("ATR423;39045;12932;-5;20151006213456789", false)]        // Altitude is negative
         [TestCase("ATR423;39045;-12932;2000;20151006213456789", false)]     // YCoor is negative (testing Jenkins and webhooks..)
         [TestCase("ATR423;-39045;12932;2000;20151006213456789", false)]     // XCoor is negative (testing Jenkins and webhooks..)
-        public void IsPlaneInOurAirSpace_TestingCoordinates_ReturnsTrue(string data, bool result)
+        public void IsPlaneInOurAirSpace_TestingCoordinates_ReturnsCorrectBoolResult(string data, bool result)
         {
             var mustBeInsideAirspace = new Track(data);
 
