@@ -8,7 +8,7 @@ using TransponderReceiver;
 
 namespace ConsoleApp3.Domain
 {
-    public class TransponderReceiverClient
+    public class TransponderReceiverClient : ITransponderReceiverClient
     {
         public event EventHandler<TrackEvents> ReadyTracks;
         private ITransponderReceiver receiver;
@@ -35,6 +35,8 @@ namespace ConsoleApp3.Domain
 
                 newTrackList.Add(newTrack);
 
+
+                // WONT WORK!! Above used instead!
                 //track.ProcessTrackData(track);
 
                 //var split = data.Split(';');
