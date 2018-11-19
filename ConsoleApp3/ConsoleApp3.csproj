@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckTracks.cs" />
+    <Compile Include="Interfaces\IMonitor.cs" />
+    <Compile Include="Domain\Monitor.cs" />
+    <Compile Include="Interfaces\ITracksUpdated.cs" />
     <Compile Include="Domain\TrackEvents.cs" />
     <Compile Include="Domain\TracksUpdated.cs" />
     <Compile Include="Domain\TransponderReceiverClient.cs" />
