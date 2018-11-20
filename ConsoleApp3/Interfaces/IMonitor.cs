@@ -2,5 +2,6 @@
 {
     internal interface IMonitor
     {
+        void Write(string data);
     }
 }

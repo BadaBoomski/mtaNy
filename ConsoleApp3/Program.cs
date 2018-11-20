@@ -19,6 +19,9 @@ namespace ConsoleApp3
             ITransponderReceiverClient transponder = new TransponderReceiverClient(reciever);
             IOurAirspace ourAirspace = new OurAirspace(transponder);
             ITracksUpdated tracksUpdated = new TracksUpdated(ourAirspace);
+
+            IConvertDataToMonitor dataToMonitor = new ConvertDataToMonitor(tracksUpdated, monitor);
+            Console.ReadKey();
         }
     }
 }
