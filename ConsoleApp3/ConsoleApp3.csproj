@@ -47,12 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckTracks.cs" />
+    <Compile Include="Domain\Separation.cs" />
+    <Compile Include="Domain\SeparationDetector.cs" />
+    <Compile Include="Domain\SeparationProvider.cs" />
     <Compile Include="Domain\TrackEvents.cs" />
     <Compile Include="Domain\TracksUpdated.cs" />
     <Compile Include="Domain\TransponderReceiverClient.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\ISeparationProvider.cs" />
+    <Compile Include="SeparationEvent.cs" />
     <Compile Include="ICheckTracks.cs" />
     <Compile Include="Interfaces\IOurAirspace.cs" />
     <Compile Include="Domain\OurAirspace.cs" />
+    <Compile Include="Interfaces\ISeparation.cs" />
+    <Compile Include="Interfaces\ISeparationDetector.cs" />
     <Compile Include="Interfaces\ITrack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
