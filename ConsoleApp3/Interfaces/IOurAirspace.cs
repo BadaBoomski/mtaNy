@@ -12,7 +12,7 @@ namespace ConsoleApp3.Domain
 
         bool IsPlaneInOurAirspace(ITrack checker);
 
-        event EventHandler<TrackEvents> TrackInOurAirspace;
+        //event EventHandler<TrackEvents> TrackInOurAirspace;
 
     }
 }

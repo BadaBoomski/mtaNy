@@ -12,10 +12,10 @@ namespace ConsoleApp3.Domain
         public event EventHandler<TrackEvents> TrackUpdated;
         private List<ITrack> oldTracks;
 
-        public TracksUpdated(IOurAirspace ourAirspace)
+        public TracksUpdated(ICheckTracks checker)
         {
             oldTracks = new List<ITrack>();
-            ourAirspace.TrackInOurAirspace += UpdateTrack;
+            checker.CheckedTracks += UpdateTrack;
         }
 
         private void UpdateTrack(object sender, TrackEvents e)
