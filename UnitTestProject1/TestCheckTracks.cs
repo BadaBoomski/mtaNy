@@ -24,6 +24,8 @@ namespace UnitTestProject1
             _ourAirspace = Substitute.For<IOurAirspace>();
             _transponderReceiverClient = Substitute.For<ITransponderReceiverClient>();
 
+            _uut = new CheckTracks(_ourAirspace, _transponderReceiverClient);
+
             _uut.CheckedTracks += (o, args) =>
             {
                 _trackList = args.TrackData;

@@ -10,9 +10,9 @@ namespace ConsoleApp3
     public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
-        public EventHandler<TrackEvents> CheckedTracks;
+        public event EventHandler<TrackEvents> CheckedTracks;
 
-        public CheckTracks(IOurAirspace ourAirspace, TransponderReceiverClient trc)
+        public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
         {
             _ourAirspace = ourAirspace;
             trc.ReadyTracks += TracksThatAreChecked;
