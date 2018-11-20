@@ -24,18 +24,19 @@ namespace ConsoleApp3.Domain
 
             foreach (var track in e.TrackData)
             {
-                track.FindTrackInList(ref oldTracks);
+
+                oldTracks = track.FindTrackInList(oldTracks, track);
+
             }
-            oldTracks = newTrackList;
-            UpdatedTrackEvent(new TrackEvents(newTrackList));
+            UpdatedTrackEvent(new TrackEvents(oldTracks));
         }
+
 
         protected virtual void UpdatedTrackEvent(TrackEvents e)
         {
             TrackUpdated?.Invoke(this, e);
         }
-        //Itrack someTrack = new ITrack()
-        // someTrack.Update(Track data, Track data)
+
         /*public static void Update(ITrack newData)
         {
             var deltaX = newData.XCoordinate - XCoordinate;

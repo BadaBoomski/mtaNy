@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 namespace ConsoleApp3.Domain
 {
     internal interface ITracksUpdated
