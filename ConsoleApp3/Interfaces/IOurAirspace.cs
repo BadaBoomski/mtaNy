@@ -1,4 +1,5 @@
-﻿namespace ConsoleApp3.Domain
+﻿using System;
+namespace ConsoleApp3.Domain
 {
     public interface IOurAirspace
     {
@@ -10,6 +11,8 @@
         int UpperBoundary { get; set; }
 
         bool IsPlaneInOurAirspace(ITrack checker);
+
+        event EventHandler<TrackEvents> TrackInOurAirspace;
 
     }
 }
