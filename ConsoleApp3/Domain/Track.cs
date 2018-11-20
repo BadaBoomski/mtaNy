@@ -55,20 +55,37 @@ namespace ConsoleApp3
             Timestamp = newData.Timestamp;
         }
 
-        public void FindTrackInList(ref List<ITrack> trackList)
+        public List<ITrack> FindTrackInList(List<ITrack> trackList, ITrack track)
         {
-            Track tempTrack = this;
-            foreach (var Track in trackList)
+            if (trackList.Contains(track))
             {
-                if (Track.Tag == tempTrack.Tag)
+                foreach (var t in trackList)
                 {
-                    Track.Update(tempTrack);
+                    if (t.Tag == track.Tag)
+                        t.Update(track);
                 }
-                else
-                {
-                    trackList.Add(tempTrack);
-                }
+
             }
+            else
+            {
+                //add
+                trackList.Add(track);
+
+            }
+            //foreach (var Track in trackList)
+            //{
+            //    if (track.Tag == Track.Tag)
+            //    {
+            //        Track.Update(Track);
+            //    }
+            //    else
+            //    {
+            //        trackList.Add(Track);
+            //    }
+
+            //}
+            return trackList;
+
         }
 
         //public void ProcessTrackData(TrackData trackData)

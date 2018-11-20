@@ -17,6 +17,6 @@ namespace ConsoleApp3
 
         void Update(ITrack newData);
 
-        void FindTrackInList(ref List<ITrack> trackList);
+        List<ITrack> FindTrackInList(List<ITrack> trackList, ITrack data);
     }
 }
