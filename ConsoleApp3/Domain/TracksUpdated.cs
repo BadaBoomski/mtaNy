@@ -30,12 +30,12 @@ namespace ConsoleApp3.Domain
             UpdatedTrackEvent(new TrackEvents(newTrackList));
         }
 
+
         protected virtual void UpdatedTrackEvent(TrackEvents e)
         {
             TrackUpdated?.Invoke(this, e);
         }
-        //Itrack someTrack = new ITrack()
-        // someTrack.Update(Track data, Track data)
+        
         /*public static void Update(ITrack newData)
         {
             var deltaX = newData.XCoordinate - XCoordinate;

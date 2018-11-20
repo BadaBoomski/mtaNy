@@ -7,12 +7,14 @@ using ConsoleApp3.Domain;
 
 namespace ConsoleApp3
 {
-    class CheckTracks: ICheckTracks
+
+    public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
-        public EventHandler<TrackEvents> CheckedTracks;
+        public event EventHandler<TrackEvents> CheckedTracks;
 
-        public CheckTracks(IOurAirspace ourAirspace, TransponderReceiverClient trc)
+        public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
+
         {
             _ourAirspace = ourAirspace;
             trc.ReadyTracks += TracksThatAreChecked;
@@ -30,10 +32,11 @@ namespace ConsoleApp3
                 }
             }
 
-            CheckedTrackEvent(new TrackEvents(tracksThatAreChecked));
+            CheckedTracksEvent(new TrackEvents(tracksThatAreChecked));
         }
 
-        protected virtual void CheckedTrackEvent(TrackEvents e)
+        protected virtual void CheckedTracksEvent(TrackEvents e)
+
         {
             CheckedTracks?.Invoke(this, e);
         }

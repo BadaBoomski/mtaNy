@@ -1,6 +1,7 @@
 ﻿using System;
 using TransponderReceiver;
 
+
 namespace ConsoleApp3.Domain
 {
     public interface ITransponderReceiverClient
