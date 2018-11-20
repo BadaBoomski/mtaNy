@@ -11,7 +11,7 @@ namespace ConsoleApp3
     public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
-        public event EventHandler<TrackEvents> CheckedTracks;
+        public EventHandler<TrackEvents> CheckedTracks;
         public List<ITrack> tracksThatAreChecked; // Maybe not interface?
 
         public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
