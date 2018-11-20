@@ -11,13 +11,19 @@ namespace ConsoleApp3.Domain
     public class TransponderReceiverClient : ITransponderReceiverClient
     {
         public event EventHandler<TrackEvents> ReadyTracks;
-        private ITransponderReceiver receiver;
+        private ITransponderReceiver receiver { set; get; }
 
         public TransponderReceiverClient(ITransponderReceiver receiver)
         {
             this.receiver = receiver;
 
-            this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady; // this is our tracks
+            this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady; 
+        }
+
+        public ITransponderReceiver Receiver
+        {
+            get{ return receiver; }
+            set{ receiver = value; }
         }
 
         public void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
@@ -25,13 +31,11 @@ namespace ConsoleApp3.Domain
             var newTrackList = new List<ITrack>();
             foreach (var data in e.TransponderData)
             {
-                ITrack someTrack = new Track(data);
+                ITrack newTrack = new Track(data);
 
-                Console.WriteLine(someTrack.ToString());
-
-                var split = data.Split(';');
-                var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", null));
-                System.Console.WriteLine($"Transponderdata {data}");
+                //var split = data.Split(';');
+                //var newTrack = new Track(split[0], Int32.Parse(split[1]), Int32.Parse(split[2]), Int32.Parse(split[3]), DateTime.ParseExact(split[4], "yyyyMMddHHmmssfff", null));
+                //System.Console.WriteLine($"Transponderdata {data}");
 
                 newTrackList.Add(newTrack);
 

@@ -7,6 +7,7 @@ using ConsoleApp3.Domain;
 
 namespace ConsoleApp3
 {
+
     public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
@@ -14,6 +15,7 @@ namespace ConsoleApp3
         public List<ITrack> tracksThatAreChecked; // Maybe not interface?
 
         public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
+
         {
             _ourAirspace = ourAirspace;
             trc.ReadyTracks += TracksThatAreChecked;
