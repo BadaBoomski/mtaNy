@@ -43,7 +43,7 @@ namespace ConsoleApp3
             Course = 0;
         }
 
-        public void Update(Track newData)
+        public void Update(ITrack newData)
         {
             var deltaX = newData.XCoordinate - XCoordinate;
             var deltaY = newData.YCoordinate - YCoordinate;
@@ -53,6 +53,22 @@ namespace ConsoleApp3
             YCoordinate = newData.YCoordinate;
             Altitude = newData.Altitude;
             Timestamp = newData.Timestamp;
+        }
+
+        public void FindTrackInList(ref List<ITrack> trackList)
+        {
+            Track tempTrack = this;
+            foreach (var Track in trackList)
+            {
+                if (Track.Tag == tempTrack.Tag)
+                {
+                    Track.Update(tempTrack);
+                }
+                else
+                {
+                    trackList.Add(tempTrack);
+                }
+            }
         }
 
         //public void ProcessTrackData(TrackData trackData)
