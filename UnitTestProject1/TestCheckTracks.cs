@@ -60,7 +60,7 @@ namespace UnitTestProject1
             _transponderReceiverClient.ReadyTracks += Raise.EventWith(args);
 
             // Assert
-            Assert.That(_trackList.Contains(newTrack), Is.EqualTo(result));
+            Assert.That(_trackList.Contains(newTrack), Is.False);
         }
     }
 }

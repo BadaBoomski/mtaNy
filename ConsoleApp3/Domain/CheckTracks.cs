@@ -10,7 +10,8 @@ namespace ConsoleApp3
     public class CheckTracks: ICheckTracks
     {
         private IOurAirspace _ourAirspace;
-        public event EventHandler<TrackEvents> CheckedTracks;
+        public EventHandler<TrackEvents> CheckedTracks;
+        public List<ITrack> tracksThatAreChecked; // Maybe not interface?
 
         public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
         {
@@ -20,7 +21,7 @@ namespace ConsoleApp3
 
         private void TracksThatAreChecked(object sender, TrackEvents e)
         {
-            var tracksThatAreChecked = new List<ITrack>();
+            tracksThatAreChecked = new List<ITrack>(); // Maybe not interface?
 
             foreach (ITrack data in e.TrackData)
             {
@@ -28,14 +29,10 @@ namespace ConsoleApp3
                 {
                     tracksThatAreChecked.Add(data);
                 }
+
+                var handler = CheckedTracks;
+                handler?.Invoke(this, new TrackEvents(tracksThatAreChecked));
             }
-
-            CheckedTracksEvent(new TrackEvents(tracksThatAreChecked));
-        }
-
-        protected virtual void CheckedTracksEvent(TrackEvents e)
-        {
-            CheckedTracks?.Invoke(this, e);
         }
     }
 }
