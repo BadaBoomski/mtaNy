@@ -20,9 +20,7 @@ namespace ConsoleApp3.Boundary
         public void Log(string tag, string date)
         {
             using (StreamWriter file = new StreamWriter(_filePath, true))
-                file.WriteLine(tag + date);
-
-
+                file.WriteLine(tag + " " + date);
         }
     }
 }
