@@ -13,8 +13,6 @@ namespace UnitTestProject1
     {
 
         private OurAirspace _uut;
-        private ITransponderReceiver _itreceiver;
-
         [SetUp]
         public void Setup()
         {

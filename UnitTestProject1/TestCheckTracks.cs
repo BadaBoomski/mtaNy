@@ -54,10 +54,8 @@ namespace UnitTestProject1
         [TestCase("ATR423", -39045, 12932, 2000, "20151006213456789", false)] // XCoor is negative (testing Jenkins and webhooks..)
         public void TracksThatAreChecked_IfCheckedIsTrueThenItWillBeAddedToList_MustReturnCorrectBoolResult(string tag, int x, int y, int alt, string date, bool result)
         {
-            var track = new Track() { Tag = tag, XCoordinate = x, YCoordinate = y, Altitude = alt, Timestamp = DateTime.ParseExact(date, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture) };
-
-
             // Arrange
+            var track = new Track() { Tag = tag, XCoordinate = x, YCoordinate = y, Altitude = alt, Timestamp = DateTime.ParseExact(date, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture) };
             List<ITrack> trackList = new List<ITrack>();
             trackList.Add(track);
            TrackEvents args = new TrackEvents(trackList);
@@ -68,6 +66,42 @@ namespace UnitTestProject1
             // Assert
             Assert.That(_trackList.Contains(track), Is.EqualTo(result));
 
+        }
+
+        [Test]
+        public void TracksAreChecked_TrackListContainsMoreThanOneApprovedTrack_MustReturnTrue()
+        {
+            // Arrange
+            var track1 = new Track() { Tag = "ATR323", XCoordinate = 20394, YCoordinate = 46464, Altitude = 1000, Timestamp = DateTime.Now };
+            var track2 = new Track() { Tag = "BED323", XCoordinate = 30000, YCoordinate = 20000, Altitude = 2000, Timestamp = DateTime.Now };
+            List<ITrack> trackList = new List<ITrack>();
+            trackList.Add(track1);
+            trackList.Add(track2);
+            TrackEvents args = new TrackEvents(trackList);
+
+            // Act
+            _transponderReceiverClient.ReadyTracks += Raise.EventWith(args);
+
+            // Assert
+            Assert.That(_trackList.Contains(track1) && _trackList.Contains(track2), Is.True);
+        }
+
+        [Test]
+        public void TracksAreChecked_TrackListDoesNotContainUnapprovedTracks_MustReturnFalse()
+        {
+            // Arrange
+            var track1 = new Track() { Tag = "ATR323", XCoordinate = 1, YCoordinate = 46464, Altitude = 1000, Timestamp = DateTime.Now };
+            var track2 = new Track() { Tag = "BED323", XCoordinate = 30000, YCoordinate = 1, Altitude = 2000, Timestamp = DateTime.Now };
+            List<ITrack> trackList = new List<ITrack>();
+            trackList.Add(track1);
+            trackList.Add(track2);
+            TrackEvents args = new TrackEvents(trackList);
+
+            // Act
+            _transponderReceiverClient.ReadyTracks += Raise.EventWith(args);
+
+            // Assert
+            Assert.That(_trackList.Contains(track1) && _trackList.Contains(track2), Is.False);
         }
     }
 }
