@@ -49,6 +49,10 @@
     <Compile Include="Boundary\Logger.cs" />
     <Compile Include="Domain\CheckTracks.cs" />
     <Compile Include="Domain\ConvertDataToMonitor.cs" />
+    <Compile Include="Domain\Separation.cs" />
+    <Compile Include="Domain\SeparationDetector.cs" />
+    <Compile Include="Domain\SeparationEvent.cs" />
+    <Compile Include="Domain\SeparationProvider.cs" />
     <Compile Include="Interfaces\IConvertDataToMonitor.cs" />
     <Compile Include="Domain\Monitor.cs" />
     <Compile Include="Domain\TrackEvents.cs" />
@@ -59,6 +63,9 @@
     <Compile Include="Interfaces\IMonitor.cs" />
     <Compile Include="Interfaces\IOurAirspace.cs" />
     <Compile Include="Domain\OurAirspace.cs" />
+    <Compile Include="Interfaces\ISeparation.cs" />
+    <Compile Include="Interfaces\ISeparationDetector.cs" />
+    <Compile Include="Interfaces\ISeparationProvider.cs" />
     <Compile Include="Interfaces\ITrack.cs" />
     <Compile Include="Interfaces\ITracksUpdated.cs" />
     <Compile Include="Interfaces\ITransponderReceiverClient.cs" />

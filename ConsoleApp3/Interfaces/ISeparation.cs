@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Interfaces
 {
-
-    public interface ILogger
+    public interface ISeparation
     {
-        void Log(string Tag, string Date);
+        string FirstTag { get; }
+        string SecondTag { get; }
+        DateTime TimeStamp { get; }
     }
-
 }

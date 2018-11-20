@@ -7,10 +7,10 @@ using ConsoleApp3.Domain;
 
 namespace ConsoleApp3
 {
-    public class CheckTracks: ICheckTracks
+    public class CheckTracks : ICheckTracks
     {
         private IOurAirspace _ourAirspace;
-        public EventHandler<TrackEvents> CheckedTracks;
+        public event EventHandler<TrackEvents> CheckedTracks;
 
         public CheckTracks(IOurAirspace ourAirspace, ITransponderReceiverClient trc)
         {
