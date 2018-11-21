@@ -20,8 +20,6 @@ namespace UnitTestProject1
             
         }
 
-
-
         [TestCase("ATR423", 39045, 12932, 14000, "20151006213456789", true)]
         [TestCase("ATR323", 10000, 10000, 500, "20151006213456789", true)] // equals lower boundary
         [TestCase("ATR423", 89999, 89999, 19999, "20151006213456789", true)] // just below upper boundary

@@ -4,11 +4,8 @@ using System.Globalization;
 using ConsoleApp3;
 using ConsoleApp3.Domain;
 using NUnit.Framework;
-using NSubstitute;
+using NSubstitute; // Tools, NUGET Pack-Man, Install-Package NSubstitute+Install-Package NSubstitute.Analyzers.CSharp
 using TransponderReceiver;
-
-// Tools, NUGET Pack-Man, Install-Package NSubstitute+Install-Package NSubstitute.Analyzers.CSharp
-
 
 namespace UnitTestProject1
 {
