@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp3.Domain;
+using ConsoleApp3.Interfaces;
+using ConsoleApp3.Boundary;
 using TransponderReceiver;
 
 
 
-namespace ConsoleApp3
+namespace ConsoleApp3.Domain
 {
     class Program
     {
@@ -20,7 +22,11 @@ namespace ConsoleApp3
             IOurAirspace ourAirspace = new OurAirspace();
             ICheckTracks checkTracks = new CheckTracks(ourAirspace, transponder);
             ITracksUpdated tracksUpdated = new TracksUpdated(checkTracks);
+            ILogger logger = new Logger();
+            ISeparationDetector separationDetector = new SeparationDetector(tracksUpdated,logger);
 
+            //Renders
+            ISeparationProvider providerToMonitor = new SeparationProvider(separationDetector, monitor);
             IConvertDataToMonitor dataToMonitor = new ConvertDataToMonitor(tracksUpdated, monitor);
             Console.ReadKey();
         }

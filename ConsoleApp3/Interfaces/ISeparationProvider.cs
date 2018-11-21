@@ -8,6 +8,6 @@ namespace ConsoleApp3.Interfaces
 {
     public interface ISeparationProvider
     {
-
+        
     }
 }

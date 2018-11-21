@@ -13,6 +13,13 @@ namespace ConsoleApp3.Domain
         public event EventHandler<SeparationEvent> UpdatedSeparations;
         private ILogger _logger;
 
+        public SeparationDetector(ITracksUpdated updated, ILogger logger)
+        {
+            _logger = logger;
+            _formorSeparations = new List<ISeparation>();
+            updated.TrackUpdated += CheckSeparation;
+        }
+
         private void CheckSeparation(object sender, TrackEvents e)
         {
             var tempSeparations = new List<ISeparation>();
@@ -27,7 +34,7 @@ namespace ConsoleApp3.Domain
                         {
                             var formorSeparations = tempSeparations.FirstOrDefault(sep =>
                                 sep.FirstTag == firstTrack.Tag || sep.SecondTag == secondTrack.Tag);
-                            //if (formorSeparations == null) tempSeparations.Add(new Separation(firstTrack.Tag, secondTrack.Tag, firstTrack.Timestamp));
+                            if (formorSeparations == null) tempSeparations.Add(new Separation(firstTrack.Tag, secondTrack.Tag, firstTrack.Timestamp));
                         }
                     }
                 }
@@ -52,11 +59,11 @@ namespace ConsoleApp3.Domain
 
         public bool IsTracksToClose(ITrack firstTrack, ITrack secondTrack)
         {
-            if (Math.Abs(firstTrack.Altitude - secondTrack.Altitude) <= 300)
+            if (Math.Abs(firstTrack.Altitude - secondTrack.Altitude) <= 3000)
             {
-                if (Math.Abs(firstTrack.XCoordinate - secondTrack.XCoordinate) <= 5000)
+                if (Math.Abs(firstTrack.XCoordinate - secondTrack.XCoordinate) <= 50000)
                 {
-                    if (Math.Abs(firstTrack.YCoordinate - secondTrack.YCoordinate) <= 5000)
+                    if (Math.Abs(firstTrack.YCoordinate - secondTrack.YCoordinate) <= 50000)
                         return true;
 
                     return false;

@@ -7,9 +7,8 @@ using ConsoleApp3.Interfaces;
 
 namespace ConsoleApp3.Domain
 {
-    public class SeparationProvider 
+    public class SeparationProvider :ISeparationProvider
     {
-        private ISeparation separator;
         private IMonitor _monitor;
 
         public SeparationProvider(ISeparationDetector detector, IMonitor monitor)
