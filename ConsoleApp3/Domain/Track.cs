@@ -47,8 +47,16 @@ namespace ConsoleApp3
         {
             var deltaX = newData.XCoordinate - XCoordinate;
             var deltaY = newData.YCoordinate - YCoordinate;
-            Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
-            Course = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
+            if ((deltaX == 0) && (deltaY == 0))
+            {
+                Velocity = 0;
+                Course = 0;
+            }
+            else
+            {
+                Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+                Course = ((Math.Atan2(deltaY, deltaX)-0.5) * 180 / Math.PI) * (-1);
+            }
             XCoordinate = newData.XCoordinate;
             YCoordinate = newData.YCoordinate;
             Altitude = newData.Altitude;
@@ -57,21 +65,26 @@ namespace ConsoleApp3
 
         public List<ITrack> FindTrackInList(List<ITrack> trackList, ITrack track)
         {
-            if (trackList.Contains(track))
+            if (trackList.Exists(p => p.Tag == track.Tag))
+            //if (trackList.Contains(track)) problem fordi selvom track har samme Tag så gør timedate de er anderledes derfor tilføjes de
             {
                 foreach (var t in trackList)
                 {
-                    if (t.Tag == track.Tag)
+                    if ((t.Tag == track.Tag) && (t.Timestamp != track.Timestamp))
+                    {
                         t.Update(track);
+                    }
                 }
+                
 
             }
             else
             {
-                //add
                 trackList.Add(track);
 
             }
+
+            //1 forsøg
             //foreach (var Track in trackList)
             //{
             //    if (track.Tag == Track.Tag)

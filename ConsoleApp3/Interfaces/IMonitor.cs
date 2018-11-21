@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp3.Domain
 {
-    internal interface IMonitor
+    public interface IMonitor
     {
         void Write(string data);
         void Clear();
