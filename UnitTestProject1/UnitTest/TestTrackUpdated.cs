@@ -62,7 +62,7 @@ namespace UnitTestProject1.UnitTest
 
             var arg = new TrackEvents(tracklist);
 
-            _uut.TrackUpdated += Raise.EventWith(arg);
+            _checkTracks.CheckedTracks += Raise.EventWith(arg);
 
             Track fly3 = new Track
             {
@@ -90,7 +90,7 @@ namespace UnitTestProject1.UnitTest
 
             var args = new TrackEvents(tracklist);
 
-            _uut.TrackUpdated += Raise.EventWith(args);
+            _checkTracks.CheckedTracks += Raise.EventWith(arg);
             //fly1
             Assert.That(_trackList[0].Altitude, Is.EqualTo(600));
             Assert.That(_trackList[0].YCoordinate, Is.EqualTo(10000));
