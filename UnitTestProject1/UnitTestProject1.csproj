@@ -70,6 +70,7 @@
     <Compile Include="IntegrationTest\IntegrationCheckTracksAndTransponderreceiverclientAndOurairspace.cs" />
     <Compile Include="IntegrationTest\IntegrationLoggerAndSeperationDetector.cs" />
     <Compile Include="IntegrationTest\IntegrationMonitorAndSeparationProviderAndSeparationDetectorAndLogger.cs" />
+    <Compile Include="IntegrationTest\IntegrationTracksUpdatedAndCheckTracks.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

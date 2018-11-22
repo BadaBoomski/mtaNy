@@ -59,6 +59,7 @@ namespace ConsoleApp3.Domain
         protected virtual void SeparationEventUpdater(SeparationEvent e)
         {
             UpdatedSeparations?.Invoke(this, e);
+           
         }
 
         public bool IsTracksToClose(ITrack firstTrack, ITrack secondTrack)
