@@ -25,7 +25,7 @@ namespace UnitTestProject1
         }
 
 
-        [TestCase("Tag1 19999101136959128", true)]
+        [TestCase("Tag1 19999101136959128")]
         public void CanTextBeWrittenToFileAndIsFileTextEqualWrittenText(string text)
         {
             _uut.Log(text);
