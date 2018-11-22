@@ -29,7 +29,7 @@ namespace UnitTestProject1
         [TestCase(DetteErIkkeEnString, false)]
         public CanTextBeWrittenToFileAndIsFileTextEqualWrittenText(string text, bool result)
         {
-            bool testresult =_uut.Log(text, result);
+            bool testresult = _uut.Log(text, result);
             Assert.That(testresult, IsEqualTo(result));
 
             var fileText;

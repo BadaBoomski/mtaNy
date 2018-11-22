@@ -9,7 +9,7 @@ namespace ConsoleApp3.Interfaces
 
     public interface ILogger
     {
-        void Log(string Tag, string Date);
+        void Log(string Tag);
     }
 
 }

@@ -17,10 +17,10 @@ namespace ConsoleApp3.Boundary
         {
             _filePath = filePath ?? "Log.txt";
         }
-        public void Log(string tag, string date)
+        public void Log(string tag)
         {
             using (StreamWriter file = new StreamWriter(_filePath, true))
-                file.WriteLine(tag + " " + date);
+                file.WriteLine(tag);
         }
     }
 }
