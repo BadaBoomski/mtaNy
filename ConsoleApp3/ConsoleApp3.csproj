@@ -72,6 +72,7 @@
     <Compile Include="Domain\SeperationProvider.cs" />
     <Compile Include="Interfaces\IConvertDataToMonitor.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IMonitor.cs" />
     <Compile Include="Interfaces\ISeperationDetector.cs" />
     <Compile Include="Interfaces\ISeperationProvider.cs" />
     <Compile Include="Interfaces\ITransponderReceiverClient.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="Domain\TracksUpdated.cs" />
     <Compile Include="Domain\TransponderReceiverClient.cs" />
     <Compile Include="Interfaces\ICheckTracks.cs" />
-    <Compile Include="Interfaces\IMonitor.cs" />
     <Compile Include="Interfaces\IOurAirspace.cs" />
     <Compile Include="Domain\OurAirspace.cs" />
     <Compile Include="Interfaces\ISeparation.cs" />

@@ -10,7 +10,7 @@ using NUnit.Framework.Internal;
 using ConsoleApp3.Boundary;
 using ConsoleApp3.Interfaces;
 
-namespace UnitTestProject1
+namespace UnitTestProject1.UnitTest
 {
     [TestFixture()]
     class TestLogger

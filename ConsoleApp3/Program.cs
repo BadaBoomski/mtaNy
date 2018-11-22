@@ -26,7 +26,7 @@ namespace ConsoleApp3.Domain
             ISeparationDetector separationDetector = new SeparationDetector(tracksUpdated,logger);
 
             //Renders
-            ISeparationProvider providerToMonitor = new SeparationProvider(separationDetector, monitor);
+            ISeperationProvider providerToMonitor = new SeparationProvider(separationDetector, monitor);
             IConvertDataToMonitor dataToMonitor = new ConvertDataToMonitor(tracksUpdated, monitor);
             Console.ReadKey();
         }
