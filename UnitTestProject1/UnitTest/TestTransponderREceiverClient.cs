@@ -16,12 +16,12 @@ namespace UnitTestProject1
         private List<ITrack> _trackList;
         private int _NrEvents;
         private TransponderReceiverClient _uut;
-        private ITransponderReceiver _receiver { get; set; }
-
+        private ITransponderReceiver _receiver;
 
         [SetUp]
         public void SetUp()
         {
+            _receiver = Substitute.For<ITransponderReceiver>();
             _uut = new TransponderReceiverClient(_receiver);
 
             _uut.ReadyTracks += (o, args) =>
@@ -32,7 +32,7 @@ namespace UnitTestProject1
         }
 
 
-        [TestCase("TAG01;23310;44251;11368;19999101136959128")]
+        [TestCase("HEJ1234;20000;20000;10000;20000101235959999")]
         public void CreateTrackAndCheckIfExistsInList(string track)
         {
 

@@ -21,7 +21,7 @@ namespace ConsoleApp3.Domain
             _monitor.Write("***Tracks***");
             foreach (var track in e.TrackData)
             {
-                Console.WriteLine("Something is here");
+              
                 var str = "Tag: " + track.Tag + " CurrentPosition: " + track.XCoordinate + "mE," +
                           track.YCoordinate +
                           "mN Altitude: " + track.Altitude + "m Velocity: " +
