@@ -36,20 +36,21 @@ namespace UnitTestProject1.UnitTest
         {
             //create data
             var separationList = new List<ISeparation>();
-            var separationOne = new Separation("testfly1", "testfly2", new DateTime(1995, 11, 23, 1, 1, 1));
-            var separationTwo = new Separation("testfly3", "testfly4", new DateTime(1995, 1, 1, 1, 1, 1));
-            separationList.Add(separationOne);
-            separationList.Add(separationTwo);
+            var Separation1 = new Separation("testfly1", "testfly2", new DateTime(1995, 11, 23, 1, 1, 1));
+            var Separation2 = new Separation("testfly3", "testfly4", new DateTime(1995, 1, 1, 1, 1, 1));
+            separationList.Add(Separation1);
+            separationList.Add(Separation2);
             var args = new SeparationEvent(separationList);
 
             //Create event
             _separationDetector.UpdatedSeparations += Raise.EventWith(args);
 
+           
             //Assert
             _monitor.Received(1).Clear();
-            _monitor.Received(1).Write("***Separations***");
-            _monitor.Received(1).Write($"Tag1: " + separationOne.FirstTag + " Tag2: " + separationOne.SecondTag + separationOne.TimeStamp);
-            _monitor.Received(1).Write($"Tag1: " + separationTwo.FirstTag + " Tag2: " + separationTwo.SecondTag + separationTwo.TimeStamp);
+            _monitor.Received(1).Write("---- Planes Are To Damn Close -----");
+            _monitor.Received(1).Write(Separation1.FirstTag + " And " + Separation1.SecondTag + Separation1.TimeStamp);
+            _monitor.Received(1).Write(Separation2.FirstTag + " And " + Separation2.SecondTag + Separation2.TimeStamp);
         }
     }
 }
