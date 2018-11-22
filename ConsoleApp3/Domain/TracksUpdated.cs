@@ -7,7 +7,7 @@ using ConsoleApp3.Domain;
 
 namespace ConsoleApp3.Domain
 {
-    class TracksUpdated : ITracksUpdated
+   public class TracksUpdated : ITracksUpdated
     {
         public event EventHandler<TrackEvents> TrackUpdated;
         private List<ITrack> oldTracks;

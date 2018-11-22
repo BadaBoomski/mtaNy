@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="UnitTest\TestOurAirspace.cs" />
     <Compile Include="UnitTest\TestSeparationProvider.cs" />
+    <Compile Include="UnitTest\TestTrackUpdated.cs" />
     <Compile Include="UnitTest\TestTransponderReceiverClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest\TestCheckTracks.cs" />
