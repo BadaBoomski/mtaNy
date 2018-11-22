@@ -49,8 +49,8 @@ namespace UnitTestProject1.UnitTest
             //Assert
             _monitor.Received(1).Clear();
             _monitor.Received(1).Write("---- Planes Are To Damn Close -----");
-            _monitor.Received(1).Write(Separation1.FirstTag + " And " + Separation1.SecondTag + Separation1.TimeStamp);
-            _monitor.Received(1).Write(Separation2.FirstTag + " And " + Separation2.SecondTag + Separation2.TimeStamp);
+            _monitor.Received(1).Write(Separation1.FirstTag + " And " + Separation1.SecondTag + " " + Separation1.TimeStamp);
+            _monitor.Received(1).Write(Separation2.FirstTag + " And " + Separation2.SecondTag + " " + Separation2.TimeStamp);
         }
     }
 }
