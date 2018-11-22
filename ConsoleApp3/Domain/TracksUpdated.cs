@@ -36,7 +36,7 @@ namespace ConsoleApp3.Domain
         {
             TrackUpdated?.Invoke(this, e);
         }
-
+        
         /*public static void Update(ITrack newData)
         {
             var deltaX = newData.XCoordinate - XCoordinate;

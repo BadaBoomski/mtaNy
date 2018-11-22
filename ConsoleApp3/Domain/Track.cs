@@ -20,28 +20,28 @@ namespace ConsoleApp3
         public double Velocity { get; set; }
         public double Course { get; set; }
 
-        public Track(string tag, int xCoordinate, int yCoordinate, int altitude, DateTime timestamp)
-        {
-            Tag = tag;
-            XCoordinate = xCoordinate;
-            YCoordinate = yCoordinate;
-            Timestamp = timestamp;
-            Altitude = altitude;
-        }
+        //public Track(string tag, int xCoordinate, int yCoordinate, int altitude, DateTime timestamp)
+        //{
+        //    Tag = tag;
+        //    XCoordinate = xCoordinate;
+        //    YCoordinate = yCoordinate;
+        //    Timestamp = timestamp;
+        //    Altitude = altitude;
+        //}
 
-        public Track(string rawData)
-        {
-            string[] delimiters = { ";" };
-            string[] subStrings = rawData.Split(delimiters, StringSplitOptions.None);
+        //public Track(string rawData)
+        //{
+        //    string[] delimiters = { ";" };
+        //    string[] subStrings = rawData.Split(delimiters, StringSplitOptions.None);
 
-            Tag = subStrings[0];
-            XCoordinate = Int32.Parse(subStrings[1]);
-            YCoordinate = Int32.Parse(subStrings[2]);
-            Altitude = Int32.Parse(subStrings[3]);
-            Timestamp = DateTime.ParseExact(subStrings[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
-            Velocity = 0;
-            Course = 0;
-        }
+        //    Tag = subStrings[0];
+        //    XCoordinate = Int32.Parse(subStrings[1]);
+        //    YCoordinate = Int32.Parse(subStrings[2]);
+        //    Altitude = Int32.Parse(subStrings[3]);
+        //    Timestamp = DateTime.ParseExact(subStrings[4], "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+        //    Velocity = 0;
+        //    Course = 0;
+        //}
 
         public void Update(ITrack newData)
         {
