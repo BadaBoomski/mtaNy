@@ -32,7 +32,7 @@ namespace UnitTestProject1
         }
 
 
-        [TestCase("TAG01;23310;44251;11368;19999101136959128")]
+        [TestCase("HEJ1234;20000;20000;10000;20000101235959999")]
         public void CreateTrackAndCheckIfExistsInList(string track)
         {
 
