@@ -45,7 +45,11 @@ namespace ConsoleApp3.Domain
                 var formorSeparation =
                     _formorSeparations.FirstOrDefault(sep =>
                         sep.FirstTag == s.FirstTag && sep.SecondTag == s.SecondTag);
-                //if (formorSeparation == null) _logger.Log(s.FirstTag + " ; " + s.SecondTag + " ; " + s.TimeStamp.ToString);
+                if (formorSeparation == null)
+                {
+                    string logString = s.FirstTag + " Has started a seperation event with " +s.SecondTag + " ; " + s.TimeStamp.ToString();
+                    _logger.Log(logString);
+                }
             }
 
             _formorSeparations = tempSeparations;
