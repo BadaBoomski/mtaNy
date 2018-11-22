@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boundary\PLogger.cs" />
     <Compile Include="Domain\CheckTracks.cs" />
     <Compile Include="Domain\ConvertDataToMonitor.cs" />
     <Compile Include="Boundary\Monitor.cs" />
@@ -80,8 +81,13 @@
     <Compile Include="Domain\TracksUpdated.cs" />
     <Compile Include="Domain\TransponderReceiverClient.cs" />
     <Compile Include="Interfaces\ICheckTracks.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IMonitor.cs" />
     <Compile Include="Interfaces\IOurAirspace.cs" />
     <Compile Include="Domain\OurAirspace.cs" />
+    <Compile Include="Interfaces\ISeparation.cs" />
+    <Compile Include="Interfaces\ISeparationDetector.cs" />
+    <Compile Include="Interfaces\ISeparationProvider.cs" />
     <Compile Include="Interfaces\ITrack.cs" />
     <Compile Include="Interfaces\ITracksUpdated.cs" />
     <Compile Include="Boundary\PLogger.cs" />

@@ -47,28 +47,114 @@ namespace ConsoleApp3
         {
             var deltaX = newData.XCoordinate - XCoordinate;
             var deltaY = newData.YCoordinate - YCoordinate;
-            Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
-            Course = Math.Atan2(deltaY, deltaX) * 180 / Math.PI;
+            var deltaTime = newData.Timestamp - Timestamp;
+            Course = this.calCompassCourse(deltaX, deltaY);
+            Velocity = this.calVelocity(deltaX, deltaY, deltaTime);
             XCoordinate = newData.XCoordinate;
             YCoordinate = newData.YCoordinate;
             Altitude = newData.Altitude;
             Timestamp = newData.Timestamp;
         }
 
-        public void FindTrackInList(ref List<ITrack> trackList)
+        public List<ITrack> FindTrackInList(List<ITrack> trackList, ITrack track)
         {
-            Track tempTrack = this;
-            foreach (var Track in trackList)
+            if (trackList.Exists(p => p.Tag == track.Tag))
+            //if (trackList.Contains(track)) problem fordi selvom track har samme Tag så gør timedate de er anderledes derfor tilføjes de
             {
-                if (Track.Tag == tempTrack.Tag)
+                foreach (var t in trackList)
                 {
-                    Track.Update(tempTrack);
+                    if ((t.Tag == track.Tag) && (t.Timestamp != track.Timestamp))
+                    {
+                        t.Update(track);
+                    }
                 }
-                else
-                {
-                    trackList.Add(tempTrack);
-                }
+                
+
             }
+            else
+            {
+                trackList.Add(track);
+
+            }
+            //1 forsøg
+            //foreach (var Track in trackList)
+            //{
+            //    if (track.Tag == Track.Tag)
+            //    {
+            //        Track.Update(Track);
+            //    }
+            //    else
+            //    {
+            //        trackList.Add(Track);
+            //    }
+
+            //}
+            return trackList;
+        }
+
+        public double calCompassCourse(int deltaX, int deltaY)
+        {
+            Course = ((Math.Atan2(deltaY, deltaX)) * (180 / Math.PI));
+
+            if ((deltaX == 0) && (deltaY == 0))
+            {
+                return Double.NaN;
+            }
+
+            //else if (deltaX == 0)
+            //{
+            //    if (deltaY < 0)
+            //    {
+            //        Course = 180;
+            //        //        Velocity = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+            //    }
+            //    else
+            //    {
+            //        Course = 0;
+            //    }
+            //}
+
+            //else if (deltaY == 0)
+            //{
+            //    if (deltaX < 0)
+            //    {
+            //        Course = 270;
+            //    }
+            //    else
+            //    {
+            //        Course = 90;
+            //    }
+            //}
+
+            //else if (deltaX < 0)
+            //{
+            //    if (deltaY < 0)
+            //    {
+            //        Course += 180;
+            //    }
+            //    else
+            //    {
+            //        Course += 270;
+            //    }
+            //}
+
+            //else if (deltaX > 0)
+            //{
+            //    if (deltaY < 0)
+            //    {
+            //        Course += 90;
+            //    }
+            //}
+
+            return Course;
+        }
+
+        public double calVelocity(int deltaX, int deltaY, TimeSpan deltaTime)
+        {
+            var timedifference = deltaTime.TotalSeconds;
+            var distanceTraveled = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+            double velocity = distanceTraveled / timedifference;
+            return velocity;
         }
 
         //public void ProcessTrackData(TrackData trackData)

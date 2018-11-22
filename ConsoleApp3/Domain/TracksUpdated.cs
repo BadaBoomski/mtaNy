@@ -24,10 +24,11 @@ namespace ConsoleApp3.Domain
 
             foreach (var track in e.TrackData)
             {
-                track.FindTrackInList(ref oldTracks);
+
+                oldTracks = track.FindTrackInList(oldTracks, track);
+
             }
-            oldTracks = newTrackList;
-            UpdatedTrackEvent(new TrackEvents(newTrackList));
+            UpdatedTrackEvent(new TrackEvents(oldTracks));
         }
 
 
