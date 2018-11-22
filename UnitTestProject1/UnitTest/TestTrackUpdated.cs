@@ -92,7 +92,7 @@ namespace UnitTestProject1.UnitTest
 
             _checkTracks.CheckedTracks += Raise.EventWith(arg);
             //fly1
-            Assert.That(_trackList[0].Altitude, Is.EqualTo(600));
+            Assert.That(_trackList[1].Altitude, Is.EqualTo(600));
             Assert.That(_trackList[0].YCoordinate, Is.EqualTo(10000));
             Assert.That(_trackList[0].XCoordinate, Is.EqualTo(10000));
             Assert.That(_trackList[0].Timestamp, Is.EqualTo(fly3.Timestamp));
