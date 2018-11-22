@@ -16,7 +16,7 @@ namespace UnitTestProject1
         private List<ITrack> _trackList;
         private int _NrEvents;
         private TransponderReceiverClient _uut;
-        private ITransponderReceiver _receiver;
+        private ITransponderReceiver _receiver { get; set; }
 
 
         [SetUp]
