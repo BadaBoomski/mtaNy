@@ -47,7 +47,7 @@ namespace UnitTestProject1
             // Act
             _transponderReceiver.TransponderDataReady += Raise.EventWith(transponderDataEventArgs);
 
-            // Assert
+           // Assert
             Assert.That(_filteredList.Count == 1, Is.True);
             Assert.That(_filteredList[0].Tag, Is.EqualTo(approvedTracksTag));
         }

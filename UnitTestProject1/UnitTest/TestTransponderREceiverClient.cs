@@ -16,12 +16,12 @@ namespace UnitTestProject1
         private List<ITrack> _trackList;
         private int _NrEvents;
         private TransponderReceiverClient _uut;
-        private ITransponderReceiver _receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
-
+        private ITransponderReceiver _receiver;
 
         [SetUp]
         public void SetUp()
         {
+            _receiver = Substitute.For<ITransponderReceiver>();
             _uut = new TransponderReceiverClient(_receiver);
 
             _uut.ReadyTracks += (o, args) =>
