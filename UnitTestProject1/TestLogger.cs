@@ -12,7 +12,7 @@ using ConsoleApp3.Interfaces;
 
 namespace UnitTestProject1
 {
-    [TestFixture()]
+    [TestFixture]
     class TestLogger
     {
         private PLogger _uut;

@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConsoleApp3;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using ConsoleApp3.Domain;
-using ConsoleApp3.Interfaces;
-using ConsoleApp3.Interfaces.;
+using TransponderReceiver;
+using NSubstitute;
 
 namespace UnitTestProject1
 {
-    [TextFixture()]
+    [TestFixture]
     class TransponderReceiverClientTest
     {
 
@@ -25,10 +22,9 @@ namespace UnitTestProject1
         [SetUp]
         public void SetUp()
         {
-            _receiver = Substitute.For<ITransponderReceiver>();
             _uut = new TransponderReceiverClient(_receiver);
 
-            -uut.TracksReady += (o, args) =>
+            _uut.ReadyTracks += (o, args) =>
             {
                 _trackList = args.TrackData;
                 _NrEvents++;
@@ -44,7 +40,7 @@ namespace UnitTestProject1
             transpondedData.Add(track);
             var arg = new RawTransponderDataEventArgs(transpondedData);
 
-            _receiver.TransponderDataReady += RaiseEventWith(arg);
+            _receiver.TransponderDataReady += Raise.EventWith(arg);
 
             Assert.That(_trackList[0].Tag, Is.EqualTo(track.Split(';') [0]));
             Assert.That(_trackList[0].XCoordinate, Is.EqualTo(Int32.Parse(track.Split(';')[1])));
@@ -53,12 +49,5 @@ namespace UnitTestProject1
             Assert.That(_trackList[0].Timestamp, Is.EqualTo(DateTime.ParseExact(track.Split(';')[4], "yyyyMMddHHmmssfff", null)));
             Assert.That(_NrEvents, Is.EqualTo(1));
         }
-
-
-
-
-
-
-
 }
 }
