@@ -104,6 +104,8 @@ namespace UnitTestProject1
 
         [TestCase("DAV542;10000;10000;500;20000101235959999")] // All exactly equal to lower boundaries
         [TestCase("DAV542;90000;90000;20000;20000101235959999")] // All exactly equal to upper boundaries
+        [TestCase("DAV542;50000;50000;10250;20000101235959999")] // All equal to level between the two boundaries
+
         public void ParsingToFiltering_TransponderdataStringOutsideAirspace_FilteredTracksDoesContainsNewTrack(string transponderDataStringOutsideOurAirspace)
         {
             List<string> transponderStrings = new List<string>();
