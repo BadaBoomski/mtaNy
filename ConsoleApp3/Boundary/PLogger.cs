@@ -8,12 +8,12 @@ using System.IO;
 
 namespace ConsoleApp3.Boundary
 {
-    public class Logger : ILogger
+    public class PLogger : ILogger
     {
 
         private readonly string _filePath;
 
-        public Logger(string filePath = null)
+        public PLogger(string filePath = null)
         {
             _filePath = filePath ?? "Log.txt";
         }

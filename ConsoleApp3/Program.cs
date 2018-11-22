@@ -22,7 +22,7 @@ namespace ConsoleApp3.Domain
             IOurAirspace ourAirspace = new OurAirspace();
             ICheckTracks checkTracks = new CheckTracks(ourAirspace, transponder);
             ITracksUpdated tracksUpdated = new TracksUpdated(checkTracks);
-            ILogger logger = new Logger();
+            ILogger logger = new PLogger();
             ISeparationDetector separationDetector = new SeparationDetector(tracksUpdated,logger);
 
             //Renders

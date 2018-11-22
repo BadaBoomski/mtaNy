@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boundary\Logger.cs" />
+    <Compile Include="Boundary\PLogger.cs" />
     <Compile Include="Domain\CheckTracks.cs" />
     <Compile Include="Domain\ConvertDataToMonitor.cs" />
     <Compile Include="Domain\Separation.cs" />

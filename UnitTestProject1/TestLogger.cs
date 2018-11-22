@@ -15,30 +15,27 @@ namespace UnitTestProject1
     [TestFixture()]
     class TestLogger
     {
-        private Logger _uut;
+        private PLogger _uut;
 
 
         [SetUp]
         public void Setup()
         {
-            _uut = new Logger();
+            _uut = new PLogger();
         }
 
 
         [TestCase("Tag1 19999101136959128", true)]
-        [TestCase(DetteErIkkeEnString, false)]
-        public CanTextBeWrittenToFileAndIsFileTextEqualWrittenText(string text, bool result)
+        public void CanTextBeWrittenToFileAndIsFileTextEqualWrittenText(string text)
         {
-            bool testresult = _uut.Log(text, result);
-            Assert.That(testresult, IsEqualTo(result));
-
-            var fileText;
-            using (StreamReader file = new StreamReader(_filePath))
+            _uut.Log(text);
+            string fileText;
+            using (StreamReader file = new StreamReader("log.txt"))
             {
                 fileText = file.ReadLine();
             }
 
-            Assert.That(fileText, IsEqualTo(text));
+            Assert.That(fileText, Is.EqualTo(text));
         }
     }
 }
