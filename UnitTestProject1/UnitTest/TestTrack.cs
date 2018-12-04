@@ -15,7 +15,9 @@ namespace UnitTestProject1.UnitTest
     [TestClass]
     public class TestTrack
     {
-        private double _c1, _c2;
+        private double _fakeDataDouble;
+        private int _fakeDataInt;
+        private string _fakeDataString;
         private Track _uut;
 
         [SetUp]
@@ -24,14 +26,49 @@ namespace UnitTestProject1.UnitTest
             _uut = new Track();
         }
 
-        // Sorry Frank, but as you know this is just an easy way to get a better coverage
+        // SORRY Frank, but as you know this is just an easy way to get a better coverage
         // which you asked for in the feedback.
 
         [Test]
-        public void TestingGetMethod_MustBeEqual()
+        public void TestingGetMethodofCourse_MustBeEqual()
         {
-            _uut.Course = _c1;
-            Assert.AreEqual(_uut.Course, _c1);
+            _uut.Course = _fakeDataDouble;
+            Assert.AreEqual(_uut.Course, _fakeDataDouble);
+        }
+
+        [Test]
+        public void TestingGetMethodofXCoordinate_MustBeEqual()
+        {
+            _uut.XCoordinate = _fakeDataInt;
+            Assert.AreEqual(_uut.XCoordinate, _fakeDataInt);
+        }
+
+        [Test]
+        public void TestingGetMethodofYCoordinate_MustBeEqual()
+        {
+            _uut.YCoordinate = _fakeDataInt;
+            Assert.AreEqual(_uut.YCoordinate, _fakeDataInt);
+        }
+
+        [Test]
+        public void TestingGetMethodofAltitude_MustBeEqual()
+        {
+            _uut.Altitude = _fakeDataInt;
+            Assert.AreEqual(_uut.Altitude, _fakeDataInt);
+        }
+
+        [Test]
+        public void TestingGetMethodofVelocity_MustBeEqual()
+        {
+            _uut.Velocity = _fakeDataDouble;
+            Assert.AreEqual(_uut.Velocity, _fakeDataDouble);
+        }
+
+        [Test]
+        public void TestingGetMethodofTag_MustBeEqual()
+        {
+            _uut.Tag = _fakeDataString;
+            Assert.AreEqual(_uut.Tag, _fakeDataString);
         }
     }
 }
