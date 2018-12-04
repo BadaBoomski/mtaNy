@@ -16,6 +16,7 @@ namespace ConsoleApp3
         double Course { get; set; }
 
         void Update(ITrack newData);
+        double calCompassCourse(int deltaX, int deltaY);
 
         List<ITrack> FindTrackInList(List<ITrack> trackList, ITrack data);
     }

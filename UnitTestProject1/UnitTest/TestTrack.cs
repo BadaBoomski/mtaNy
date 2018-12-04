@@ -16,14 +16,18 @@ namespace UnitTestProject1.UnitTest
     public class TestTrack
     {
         private double _fakeDataDouble;
-        private int _fakeDataInt;
+        private int _fakeDataInt, _fakeDatain2;
         private string _fakeDataString;
         private Track _uut;
+        private ITrack _fakeTrack, _fakeTrack2;
 
         [SetUp]
         public void Setup()
         {
             _uut = new Track();
+            _fakeTrack = Substitute.For<ITrack>();
+            _fakeTrack2 = Substitute.For<ITrack>();
+
         }
 
         // SORRY Frank, but as you know this is just an easy way to get a better coverage
@@ -69,6 +73,17 @@ namespace UnitTestProject1.UnitTest
         {
             _uut.Tag = _fakeDataString;
             Assert.AreEqual(_uut.Tag, _fakeDataString);
+        }
+
+        [Test]
+        public void TestingCourse_InsertingValidData_MustReturnTrue()
+        {
+            int _fakeDeltaX = 10000;
+            int _fakeDeltaY = 10000;
+
+            _uut.calCompassCourse(_fakeDeltaX, _fakeDeltaY);
+            Assert.AreEqual(_uut.Course, 45);
+
         }
     }
 }
