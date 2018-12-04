@@ -36,5 +36,7 @@ namespace ConsoleApp3
                 handler?.Invoke(this, new TrackEvents(tracksThatAreChecked));
             }
         }
+
+
     }
 }

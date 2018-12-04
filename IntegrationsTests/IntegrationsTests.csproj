@@ -71,7 +71,6 @@
     <Compile Include="IntegrationTest\IntegrationLoggerAndSeperationDetector.cs" />
     <Compile Include="IntegrationTest\IntegrationMonitorAndSeparationProviderAndSeparationDetectorAndLogger.cs" />
     <Compile Include="IntegrationTest\IntegrationTracksUpdatedAndCheckTracks.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
