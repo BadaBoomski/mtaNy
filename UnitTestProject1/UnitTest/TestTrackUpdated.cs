@@ -36,11 +36,12 @@ namespace UnitTestProject1.UnitTest
         [Test]
         public void UpdatingTheListOfTracks()
         {
+            DateTime tempTime = DateTime.Now;
             List<ITrack> tracklist = new List<ITrack>();
             List<ITrack> Resultlist = new List<ITrack>();
             Track fly1 = new Track
             {
-                Timestamp = DateTime.Now,
+                Timestamp = tempTime,
                 Tag = "fly1",
                 Altitude = 700,
                 YCoordinate = 10000,
@@ -51,7 +52,7 @@ namespace UnitTestProject1.UnitTest
 
             Track fly2 = new Track
             {
-                Timestamp = DateTime.Now,
+                Timestamp = tempTime,
                 Tag = "fly2",
                 Altitude = 800,
                 YCoordinate = 12000,
@@ -69,7 +70,7 @@ namespace UnitTestProject1.UnitTest
 
             Track fly3 = new Track
             {
-                Timestamp = DateTime.Now.AddSeconds(1),
+                Timestamp = tempTime.AddSeconds(1),
                 Tag = "fly1",
                 Altitude = 600,
                 YCoordinate = 10000,
@@ -80,7 +81,7 @@ namespace UnitTestProject1.UnitTest
 
             Track fly4 = new Track
             {
-                Timestamp = DateTime.Now.AddSeconds(1),
+                Timestamp = tempTime,
                 Tag = "fly2",
                 Altitude = 700,
                 YCoordinate = 11000,
@@ -116,6 +117,7 @@ namespace UnitTestProject1.UnitTest
             Assert.That(tracklist[0].Timestamp, Is.EqualTo(fly3.Timestamp));
             Assert.That(tracklist[0].Velocity, Is.EqualTo(1));
             Assert.That(tracklist[0].Course, Is.EqualTo(0));
+
 
             // fly2
             Assert.That(tracklist[1].Altitude, Is.EqualTo(700));
