@@ -20,11 +20,11 @@ namespace ConsoleApp3.Domain
             this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady; 
         }
 
-        //public ITransponderReceiver Receiver
-        //{
-        //    get{ return receiver; }
-        //    set{ receiver = value; }
-        //}
+        public ITransponderReceiver Receiver
+        {
+            get { return receiver; }
+            set { receiver = value; }
+        }
 
         public void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
