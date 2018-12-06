@@ -98,9 +98,9 @@ namespace UnitTestProject1.UnitTest
                 Velocity = 0
             };
 
-            fly3.FindTrackInList(tracklist, fly3);
-            fly4.FindTrackInList(tracklist, fly4);
-            notInListPlane.FindTrackInList(tracklist, notInListPlane);
+            tracklist = fly3.FindTrackInList(tracklist, fly3);
+            tracklist = fly4.FindTrackInList(tracklist, fly4);
+            tracklist = notInListPlane.FindTrackInList(tracklist, notInListPlane);
             //tracklist.Add(fly3);
             //tracklist.Add(fly4);
 
