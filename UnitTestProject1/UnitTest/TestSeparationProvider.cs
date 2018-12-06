@@ -86,7 +86,7 @@ namespace UnitTestProject1.UnitTest
             var args = new SeparationEvent(separationList);
 
             //Create event
-            SepDet.UpdatedSeparations += Raise.EventWith(args);
+            _seperationDetector.UpdatedSeparations += Raise.EventWith(args);
 
             Assert.That(separationList.Count, Is.EqualTo(2));
             //Assert
