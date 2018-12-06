@@ -72,9 +72,31 @@ namespace UnitTestProject1.UnitTest
                 Course = 16,
                 Velocity = 150
             };
-            
+            Track fly4 = new Track
+            {
+                Timestamp = tempTime,
+                Tag = "fly4",
+                Altitude = 700,
+                YCoordinate = 18000,
+                XCoordinate = 11000,
+                Course = 16,
+                Velocity = 150
+            };
+            Track fly5 = new Track
+            {
+                Timestamp = tempTime,
+                Tag = "fly5",
+                Altitude = 700,
+                YCoordinate = 11000,
+                XCoordinate = 18000,
+                Course = 16,
+                Velocity = 150
+            };
+
             Assert.That(SepDet.IsTracksToClose(fly1, fly2), Is.True);
             Assert.That(SepDet.IsTracksToClose(fly1, fly3), Is.False);
+            Assert.That(SepDet.IsTracksToClose(fly1, fly4), Is.False);
+            Assert.That(SepDet.IsTracksToClose(fly1, fly5), Is.False);
 
         }
 
