@@ -80,7 +80,7 @@ namespace UnitTestProject1.UnitTest
             {
                 Timestamp = DateTime.Now,
                 Tag = "fly2",
-                Altitude = 700,
+                Altitude = 750,
                 YCoordinate = 11000,
                 XCoordinate = 11000,
                 Course = 16,
@@ -114,7 +114,7 @@ namespace UnitTestProject1.UnitTest
             Assert.That(tracklist[0].Timestamp, Is.EqualTo(fly3.Timestamp));
 
             // fly2
-            Assert.That(tracklist[1].Altitude, Is.EqualTo(700));
+            Assert.That(tracklist[1].Altitude, Is.EqualTo(750));
             Assert.That(tracklist[1].YCoordinate, Is.EqualTo(11000));
             Assert.That(tracklist[1].XCoordinate, Is.EqualTo(11000));
             Assert.That(tracklist[1].Timestamp, Is.EqualTo(fly4.Timestamp));
