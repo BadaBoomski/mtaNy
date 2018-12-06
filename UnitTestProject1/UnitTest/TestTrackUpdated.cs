@@ -81,7 +81,7 @@ namespace UnitTestProject1.UnitTest
 
             Track fly4 = new Track
             {
-                Timestamp = tempTime,
+                Timestamp = tempTime.AddSeconds(1),
                 Tag = "fly2",
                 Altitude = 700,
                 YCoordinate = 11000,
