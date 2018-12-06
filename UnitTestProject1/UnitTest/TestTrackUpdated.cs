@@ -74,7 +74,7 @@ namespace UnitTestProject1.UnitTest
                 Tag = "fly1",
                 Altitude = 600,
                 YCoordinate = 10000,
-                XCoordinate = 10000,
+                XCoordinate = 10001,
                 Course = 15,
                 Velocity = 200
             };
@@ -115,6 +115,8 @@ namespace UnitTestProject1.UnitTest
             Assert.That(tracklist[0].YCoordinate, Is.EqualTo(10000));
             Assert.That(tracklist[0].XCoordinate, Is.EqualTo(10000));
             Assert.That(tracklist[0].Timestamp, Is.EqualTo(fly3.Timestamp));
+            Assert.That(tracklist[0].Velocity, Is.EqualTo(1));
+            Assert.That(tracklist[0].Course, Is.EqualTo(0));
 
             // fly2
             Assert.That(tracklist[1].Altitude, Is.EqualTo(700));
