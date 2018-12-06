@@ -36,7 +36,9 @@ namespace UnitTestProject1.UnitTest
         [Test]
         public void UpdatingTheListOfTracks()
         {
+            
             List<ITrack> tracklist = new List<ITrack>();
+            List<ITrack> Resultlist = new List<ITrack>();
             Track fly1 = new Track
             {
                 Timestamp = DateTime.Now,
@@ -58,6 +60,7 @@ namespace UnitTestProject1.UnitTest
                 Course = 16,
                 Velocity = 150
             };
+            tracklist.Clear();
             tracklist.Add(fly1);
             tracklist.Add(fly2);
 
@@ -67,7 +70,7 @@ namespace UnitTestProject1.UnitTest
 
             Track fly3 = new Track
             {
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.Now.AddSeconds(1),
                 Tag = "fly1",
                 Altitude = 600,
                 YCoordinate = 10000,
@@ -76,11 +79,9 @@ namespace UnitTestProject1.UnitTest
                 Velocity = 200
             };
 
-            tracklist.Clear();
-
             Track fly4 = new Track
             {
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.Now.AddSeconds(1),
                 Tag = "fly2",
                 Altitude = 700,
                 YCoordinate = 11000,
