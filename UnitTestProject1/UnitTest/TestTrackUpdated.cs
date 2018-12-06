@@ -87,8 +87,20 @@ namespace UnitTestProject1.UnitTest
                 Velocity = 150
             };
 
+            Track notInListPlane = new Track
+            {
+                Timestamp = DateTime.Now,
+                Tag = "NotInListPlane",
+                Altitude = 999,
+                YCoordinate = 15000,
+                XCoordinate = 15000,
+                Course = 0,
+                Velocity = 0
+            };
+
             fly3.FindTrackInList(tracklist, fly3);
             fly4.FindTrackInList(tracklist, fly4);
+            notInListPlane.FindTrackInList(tracklist, notInListPlane);
             //tracklist.Add(fly3);
             //tracklist.Add(fly4);
 
@@ -106,6 +118,11 @@ namespace UnitTestProject1.UnitTest
             Assert.That(_trackList[1].YCoordinate, Is.EqualTo(11000));
             Assert.That(_trackList[1].XCoordinate, Is.EqualTo(11000));
             Assert.That(_trackList[1].Timestamp, Is.EqualTo(fly4.Timestamp));
+
+            Assert.That(_trackList[2].Altitude, Is.EqualTo(999));
+            Assert.That(_trackList[2].YCoordinate, Is.EqualTo(15000));
+            Assert.That(_trackList[2].XCoordinate, Is.EqualTo(15000));
+            Assert.That(_trackList[2].Timestamp, Is.EqualTo(notInListPlane.Timestamp));
 
 
         }
