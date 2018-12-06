@@ -83,7 +83,17 @@ namespace UnitTestProject1.UnitTest
 
             _uut.calCompassCourse(_fakeDeltaX, _fakeDeltaY);
             Assert.AreEqual(_uut.Course, 45);
-
+         
         }
+
+        //[Test]
+        //public void TestingCalVelocity_InsertingValidData_MustReturnTrue()
+        //{
+        //    int _fakeDeltaX = 10000;
+        //    int _fakeDeltaY = 10000;
+        //    TimeSpan _fakeDateTime = TimeSpan.Pars;
+        //    _uut.calVelocity(_fakeDeltaX, _fakeDeltaY, _fakeDateTime);
+        //    Assert.AreEqual(_uut.Velocity, 8);
+        //}
     }
 }
