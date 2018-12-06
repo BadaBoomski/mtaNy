@@ -129,7 +129,7 @@ namespace UnitTestProject1.UnitTest
             Assert.That(tracklist[2].YCoordinate, Is.EqualTo(15000));
             Assert.That(tracklist[2].XCoordinate, Is.EqualTo(15000));
             Assert.That(tracklist[2].Timestamp, Is.EqualTo(notInListPlane.Timestamp));
-            Assert.That(tracklist[2].Velocity, Is.EqualTo(double.NaN));
+            Assert.That(tracklist[2].Velocity, Is.EqualTo(0));
        
 
 
