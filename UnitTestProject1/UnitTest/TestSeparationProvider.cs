@@ -52,13 +52,13 @@ namespace UnitTestProject1.UnitTest
                 Course = 16,
                 Velocity = 150
             };
-            Track fly2 = new Track
+            Track fly2 = new Track //dette fly er for tæt på det første
             {
                 Timestamp = tempTime,
                 Tag = "fly2",
-                Altitude = 700,
-                YCoordinate = 11000,
-                XCoordinate = 11000,
+                Altitude = 701, 
+                YCoordinate = 11001,
+                XCoordinate = 11001,
                 Course = 16,
                 Velocity = 150
             };
@@ -66,9 +66,9 @@ namespace UnitTestProject1.UnitTest
             {
                 Timestamp = tempTime,
                 Tag = "fly3",
-                Altitude = 1500,
-                YCoordinate = 18000,
-                XCoordinate = 18000,
+                Altitude = 1500, // angiver false på altitude 
+                YCoordinate = 11000,
+                XCoordinate = 11000,
                 Course = 16,
                 Velocity = 150
             };
@@ -77,7 +77,7 @@ namespace UnitTestProject1.UnitTest
                 Timestamp = tempTime,
                 Tag = "fly4",
                 Altitude = 700,
-                YCoordinate = 18000,
+                YCoordinate = 18000, //angiver false på X Koordinate
                 XCoordinate = 11000,
                 Course = 16,
                 Velocity = 150
@@ -88,7 +88,7 @@ namespace UnitTestProject1.UnitTest
                 Tag = "fly5",
                 Altitude = 700,
                 YCoordinate = 11000,
-                XCoordinate = 18000,
+                XCoordinate = 18000, //angiver false på Y koordinate
                 Course = 16,
                 Velocity = 150
             };
