@@ -64,11 +64,11 @@ namespace ConsoleApp3.Domain
 
         public bool IsTracksToClose(ITrack firstTrack, ITrack secondTrack)
         {
-            if (Math.Abs(firstTrack.Altitude - secondTrack.Altitude) <= 3000)
+            if (Math.Abs(firstTrack.Altitude - secondTrack.Altitude) <= 300)
             {
-                if (Math.Abs(firstTrack.XCoordinate - secondTrack.XCoordinate) <= 50000)
+                if (Math.Abs(firstTrack.XCoordinate - secondTrack.XCoordinate) <= 5000)
                 {
-                    if (Math.Abs(firstTrack.YCoordinate - secondTrack.YCoordinate) <= 50000)
+                    if (Math.Abs(firstTrack.YCoordinate - secondTrack.YCoordinate) <= 5000)
                         return true;
 
                     return false;
