@@ -98,9 +98,9 @@ namespace UnitTestProject1.UnitTest
                 Velocity = 0
             };
 
-            fly3.FindTrackInList(_trackList, fly3);
-            fly4.FindTrackInList(_trackList, fly4);
-            notInListPlane.FindTrackInList(_trackList, notInListPlane);
+            fly3.FindTrackInList(tracklist, fly3);
+            fly4.FindTrackInList(tracklist, fly4);
+            notInListPlane.FindTrackInList(tracklist, notInListPlane);
             //tracklist.Add(fly3);
             //tracklist.Add(fly4);
 
@@ -108,21 +108,21 @@ namespace UnitTestProject1.UnitTest
 
             _checkTracks.CheckedTracks += Raise.EventWith(args);
             // fly1
-            Assert.That(_trackList[0].Altitude, Is.EqualTo(600));
-            Assert.That(_trackList[0].YCoordinate, Is.EqualTo(10000));
-            Assert.That(_trackList[0].XCoordinate, Is.EqualTo(10000));
-            Assert.That(_trackList[0].Timestamp, Is.EqualTo(fly3.Timestamp));
+            Assert.That(tracklist[0].Altitude, Is.EqualTo(600));
+            Assert.That(tracklist[0].YCoordinate, Is.EqualTo(10000));
+            Assert.That(tracklist[0].XCoordinate, Is.EqualTo(10000));
+            Assert.That(tracklist[0].Timestamp, Is.EqualTo(fly3.Timestamp));
 
             // fly2
-            Assert.That(_trackList[1].Altitude, Is.EqualTo(700));
-            Assert.That(_trackList[1].YCoordinate, Is.EqualTo(11000));
-            Assert.That(_trackList[1].XCoordinate, Is.EqualTo(11000));
-            Assert.That(_trackList[1].Timestamp, Is.EqualTo(fly4.Timestamp));
+            Assert.That(tracklist[1].Altitude, Is.EqualTo(700));
+            Assert.That(tracklist[1].YCoordinate, Is.EqualTo(11000));
+            Assert.That(tracklist[1].XCoordinate, Is.EqualTo(11000));
+            Assert.That(tracklist[1].Timestamp, Is.EqualTo(fly4.Timestamp));
 
-            Assert.That(_trackList[2].Altitude, Is.EqualTo(999));
-            Assert.That(_trackList[2].YCoordinate, Is.EqualTo(15000));
-            Assert.That(_trackList[2].XCoordinate, Is.EqualTo(15000));
-            Assert.That(_trackList[2].Timestamp, Is.EqualTo(notInListPlane.Timestamp));
+            Assert.That(tracklist[2].Altitude, Is.EqualTo(999));
+            Assert.That(tracklist[2].YCoordinate, Is.EqualTo(15000));
+            Assert.That(tracklist[2].XCoordinate, Is.EqualTo(15000));
+            Assert.That(tracklist[2].Timestamp, Is.EqualTo(notInListPlane.Timestamp));
 
 
         }
