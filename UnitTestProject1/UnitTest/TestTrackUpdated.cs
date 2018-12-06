@@ -36,7 +36,6 @@ namespace UnitTestProject1.UnitTest
         [Test]
         public void UpdatingTheListOfTracks()
         {
-            
             List<ITrack> tracklist = new List<ITrack>();
             List<ITrack> Resultlist = new List<ITrack>();
             Track fly1 = new Track
@@ -44,8 +43,8 @@ namespace UnitTestProject1.UnitTest
                 Timestamp = DateTime.Now,
                 Tag = "fly1",
                 Altitude = 700,
-                YCoordinate = 11000,
-                XCoordinate = 11000,
+                YCoordinate = 10000,
+                XCoordinate = 10000,
                 Course = 15,
                 Velocity = 200
             };
