@@ -69,8 +69,8 @@ namespace UnitTestProject1.UnitTest
                 Velocity = 150
             };
             
-            Assert.That(SepDet.IsTracksToClose(fly1, fly2), Is.EqualTo(true));
-            Assert.That(SepDet.IsTracksToClose(fly1, fly3), Is.EqualTo(false));
+            Assert.That(SepDet.IsTracksToClose(fly1, fly2), Is.True);
+            Assert.That(SepDet.IsTracksToClose(fly1, fly3), Is.False);
 
         }
 
