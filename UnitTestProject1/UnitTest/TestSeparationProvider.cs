@@ -17,7 +17,7 @@ namespace UnitTestProject1.UnitTest
         //Stubs
         private IMonitor _monitor;
         private ISeperationProvider _seperationProvider;
-        private ISeparationDetector _separationDetector;
+        private ISeparationDetector SepDet;
         //Unit under test
         private SeparationProvider _uut;
 
@@ -26,9 +26,52 @@ namespace UnitTestProject1.UnitTest
         {
             //Stubs
             _monitor = Substitute.For<IMonitor>();
-            _separationDetector = Substitute.For<ISeparationDetector>();
+            SepDet = Substitute.For<ISeparationDetector>();
             //Unit under test
-            _uut = new SeparationProvider(_separationDetector, _monitor);
+            _uut = new SeparationProvider(SepDet, _monitor);
+        }
+        [Test]
+        public void TestIfPlanesAreTooClose()
+        {
+            var Separation1 = new Separation("irelevantfly1", "irelevantfly2", new DateTime(1995, 11, 23, 1, 1, 1));
+
+            SeparationDetector SepDet = new SeparationDetector(null,null);
+
+            DateTime tempTime = DateTime.Now;
+            Track fly1 = new Track
+            {
+                Timestamp = tempTime,
+                Tag = "fly1",
+                Altitude = 700,
+                YCoordinate = 11000,
+                XCoordinate = 11000,
+                Course = 16,
+                Velocity = 150
+            };
+            Track fly2 = new Track
+            {
+                Timestamp = tempTime,
+                Tag = "fly2",
+                Altitude = 700,
+                YCoordinate = 11000,
+                XCoordinate = 11000,
+                Course = 16,
+                Velocity = 150
+            };
+            Track fly3 = new Track
+            {
+                Timestamp = tempTime,
+                Tag = "fly3",
+                Altitude = 1500,
+                YCoordinate = 18000,
+                XCoordinate = 18000,
+                Course = 16,
+                Velocity = 150
+            };
+            
+            Assert.That(SepDet.IsTracksToClose(fly1, fly2), Is.EqualTo(true));
+            Assert.That(SepDet.IsTracksToClose(fly1, fly3), Is.EqualTo(false));
+
         }
 
         [Test]
@@ -43,9 +86,9 @@ namespace UnitTestProject1.UnitTest
             var args = new SeparationEvent(separationList);
 
             //Create event
-            _separationDetector.UpdatedSeparations += Raise.EventWith(args);
+            SepDet.UpdatedSeparations += Raise.EventWith(args);
 
-           
+            Assert.That(separationList.Count, Is.EqualTo(2));
             //Assert
             _monitor.Received(1).Clear();
             _monitor.Received(1).Write("---- Planes Are To Damn Close -----");
