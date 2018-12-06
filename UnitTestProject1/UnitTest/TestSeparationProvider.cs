@@ -16,6 +16,8 @@ namespace UnitTestProject1.UnitTest
     {
         //Stubs
         private IMonitor _monitor;
+        private ILogger _logger;
+        private ITracksUpdated _tracksUpdated;
         private ISeperationProvider _seperationProvider;
         private ISeparationDetector _seperationDetector;
         //Unit under test
@@ -26,6 +28,8 @@ namespace UnitTestProject1.UnitTest
         {
             //Stubs
             _monitor = Substitute.For<IMonitor>();
+            _logger = Substitute.For<ILogger>();
+            _tracksUpdated = Substitute.For<ITracksUpdated>();
             _seperationDetector = Substitute.For<ISeparationDetector>();
             //Unit under test
             _uut = new SeparationProvider(_seperationDetector, _monitor);
@@ -35,7 +39,7 @@ namespace UnitTestProject1.UnitTest
         {
             var Separation1 = new Separation("irelevantfly1", "irelevantfly2", new DateTime(1995, 11, 23, 1, 1, 1));
 
-            SeparationDetector SepDet = new SeparationDetector(null,null);
+            SeparationDetector SepDet = new SeparationDetector(_tracksUpdated,_logger);
 
             DateTime tempTime = DateTime.Now;
             Track fly1 = new Track
