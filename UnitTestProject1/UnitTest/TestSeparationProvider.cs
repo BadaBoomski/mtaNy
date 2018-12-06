@@ -17,7 +17,7 @@ namespace UnitTestProject1.UnitTest
         //Stubs
         private IMonitor _monitor;
         private ISeperationProvider _seperationProvider;
-        private ISeparationDetector SepDet;
+        private ISeparationDetector _seperationDetector;
         //Unit under test
         private SeparationProvider _uut;
 
@@ -26,9 +26,9 @@ namespace UnitTestProject1.UnitTest
         {
             //Stubs
             _monitor = Substitute.For<IMonitor>();
-            SepDet = Substitute.For<ISeparationDetector>();
+            _seperationDetector = Substitute.For<ISeparationDetector>();
             //Unit under test
-            _uut = new SeparationProvider(SepDet, _monitor);
+            _uut = new SeparationProvider(_seperationDetector, _monitor);
         }
         [Test]
         public void TestIfPlanesAreTooClose()
